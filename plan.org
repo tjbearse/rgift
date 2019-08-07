@@ -1,0 +1,27 @@
+* Core Questions / Hypothesis
+* Plan of attack
+** Character placeholders
+** Detect button combo
+** Trigger basic attack
+** Damaging
+** meal attacks (match & display)
+** courses
+** Base Movement (w/ anim)
+** Controlled movement
+** AI movement (dumb follow)
+** AI attack
+** attack differentiation
+* Cutting room floor
+** Item loss system
+** Navmesh enemies
+** attack visual effects
+** buffs and debuffs
+** aoe
+** passive aoe
+** rooms / dungeon crawling
+** room decor
+** cinematics
+** inventory system
+** Dragon chase
+** Boss fight
+** puzzles & challenges
