@@ -11,8 +11,13 @@ using System.Linq;
 public class Hitbox : MonoBehaviour {
 	public LayerMask mask;
 	public Vector3 boxSize = Vector3.one / 2f;
+
+	public bool active = false;
 	
 	public IEnumerable<HurtBox> CheckCollision() {
+		if (!active) {
+			return new HurtBox[0];
+		}
 		Collider[] colliders = Physics.OverlapBox(transform.position, boxSize, transform.rotation, mask);
 
 		if (colliders.Length > 0) {
@@ -22,7 +27,11 @@ public class Hitbox : MonoBehaviour {
 	}
 
 	private void OnDrawGizmosSelected() {
-		Gizmos.color = new Color(1,0,0,.25f);
+		if (active) {
+			Gizmos.color = new Color(1,0,0,.25f);
+		} else {
+			Gizmos.color = new Color(.5f,.5f,0,.25f);
+		}
 		Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, transform.localScale);
 		Gizmos.DrawCube(Vector3.zero, new Vector3(boxSize.x * 2, boxSize.y * 2, boxSize.z * 2)); // Because size is halfExtents
 	}

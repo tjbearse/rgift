@@ -7,7 +7,10 @@ using System.Linq;
 public class FoodFighter : MonoBehaviour {
 	public Cooldown comboCool = new Cooldown(.75f);
 	public Hitbox hitbox;
+	public AttackTree attackTree;
 	private Animator anim;
+
+	private Attack.Progress attackInProgress;
 
 	private Queue<FoodType> meal;
 	
@@ -25,7 +28,11 @@ public class FoodFighter : MonoBehaviour {
 		// TODO start attacking
 		comboCool.Trigger();
 		meal.Enqueue(food);
-		TriggerAttack();
+
+		// match to attack and start it
+		// need a traversal thing to walk the foodtree
+		// reset it when combo expires
+
 		if (meal.Count >= 3) {
 			Clear();
 		}
@@ -35,20 +42,15 @@ public class FoodFighter : MonoBehaviour {
 		if (meal.Count != 0 && comboCool.cool) {
 			Clear();
 		}
-	}
-
-	void TriggerAttack() {
-		anim?.SetTrigger("Attack");
-		var hits = hitbox.CheckCollision();
-		foreach(var hit in hits) {
-			if (!hit.target.CompareTag("Player")) {
-				Debug.Log(string.Format("Hit {0}", hit.target));
+		if (attackInProgress != null) {
+			if (!attackInProgress.Update()) {
+				attackInProgress = null;
 			}
 		}
 	}
 
 	void Clear() {
-		comboCool.Clear();
+		comboCool.Clear(); // TODO incorporate move timing too?
 		Debug.Log(string.Format("meal done: {0}", meal.ToList()));
 		// TODO submit meal
 		meal.Clear();

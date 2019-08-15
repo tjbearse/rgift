@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.49641287, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44658822, g: 0.49642307, b: 0.5748253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -130,6 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 377260097}
   - component: {fileID: 377260096}
+  - component: {fileID: 377260098}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Enemy
@@ -168,6 +169,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &377260098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377260095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ff823dfff4d4bc090395c3c730833e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  health: 10
 --- !u!1 &546276825
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6419537fbac84e47ad528075620188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 377260095}
+  target: {fileID: 377260098}
 --- !u!136 &865767367
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -769,7 +784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6419537fbac84e47ad528075620188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2093690992}
+  target: {fileID: 2093690997}
 --- !u!1 &1487434131
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +796,7 @@ GameObject:
   - component: {fileID: 1487434132}
   - component: {fileID: 1487434133}
   m_Layer: 8
-  m_Name: widehitbox
+  m_Name: hitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -817,6 +832,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   boxSize: {x: 1, y: 1, z: 2}
+  active: 0
 --- !u!1 &1680369202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1028,7 @@ GameObject:
   - component: {fileID: 2093690993}
   - component: {fileID: 2093690994}
   - component: {fileID: 2093690995}
+  - component: {fileID: 2093690997}
   - component: {fileID: 2093690996}
   m_Layer: 0
   m_Name: character
@@ -1064,6 +1081,7 @@ MonoBehaviour:
   comboCool:
     dur: 0.75
   hitbox: {fileID: 1487434133}
+  attackTree: {fileID: 0}
 --- !u!95 &2093690996
 Animator:
   serializedVersion: 3
@@ -1077,9 +1095,23 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 7db617d0377bd444a948aa0fb35d2f45, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2093690997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093690992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ff823dfff4d4bc090395c3c730833e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  health: 0

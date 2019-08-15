@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HurtBox : MonoBehaviour {
-	public GameObject target;
+	public Health target;
 
 	// fn TakeHit
 	// who am I hurting

@@ -5,7 +5,7 @@
 ** DONE Character placeholders
 ** DONE Detect button combo
 ** DONE Trigger basic attack
-** Damaging
+** DONE Damaging
 need a health script
 How to manage not hitting twice w/ same part of the attack?
 ** meal attacks (match & display)
@@ -17,6 +17,12 @@ Animation, hitbox (w/ anim?), damage / effect
 ** AI movement (dumb follow)
 ** AI attack
 ** attack differentiation
+
+* Maybe later
+** enemy health bars
+** player GUI
+** knockback, hitstop
+** attack interrupt
 
 * Cutting room floor
 ** Item loss system
