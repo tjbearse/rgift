@@ -1,16 +1,23 @@
 * Core Questions / Hypothesis
+** Reduced violence combo game
+** Semantic combos
 * Plan of attack
-** Character placeholders
-** Detect button combo
-** Trigger basic attack
+** DONE Character placeholders
+** DONE Detect button combo
+** DONE Trigger basic attack
 ** Damaging
+need a health script
+How to manage not hitting twice w/ same part of the attack?
 ** meal attacks (match & display)
+Attacks start before combos are fully known. Is this a tree of attacks?
+Animation, hitbox (w/ anim?), damage / effect
 ** courses
 ** Base Movement (w/ anim)
 ** Controlled movement
 ** AI movement (dumb follow)
 ** AI attack
 ** attack differentiation
+
 * Cutting room floor
 ** Item loss system
 ** Navmesh enemies
@@ -25,3 +32,5 @@
 ** Dragon chase
 ** Boss fight
 ** puzzles & challenges
+
+** Node editor & Tree of moves
