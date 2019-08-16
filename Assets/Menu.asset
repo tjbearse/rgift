@@ -12,262 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f377a396180757b67a083dae00d86436, type: 3}
   m_Name: Menu
   m_EditorClassIdentifier: 
-  menu:
-    Grain:
-      Grain:
-        Grain: Bread Sandwich
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Fruit:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Vegetable:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Dairy:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Meat:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      FatOilSugar:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-    Fruit:
-      Grain:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Fruit:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Vegetable:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Dairy:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Meat:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      FatOilSugar:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-    Vegetable:
-      Grain:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Fruit:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Vegetable:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Dairy:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Meat:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      FatOilSugar:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-    Dairy:
-      Grain:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Fruit:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Vegetable:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Dairy:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Meat:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      FatOilSugar:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-    Meat:
-      Grain:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Fruit:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Vegetable:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Dairy:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Meat:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      FatOilSugar:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-    FatOilSugar:
-      Grain:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Fruit:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Vegetable:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Dairy:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      Meat:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
-      FatOilSugar:
-        Grain: 
-        Fruit: 
-        Vegetable: 
-        Dairy: 
-        Meat: 
-        FatOilSugar: 
+  Grain: Bread
+  Fruit: Tomato
+  Vegetable: Lettuce
+  Dairy: Cheese
+  Meat: Chicken
+  FatOilSugar: Olive Oil
+  entries:
+  - name: Toast
+    food: 1
+  - name: Fried Tomato
+    food: 2
+  - name: Grilled Chicken
+    food: 16
+  - name: Salad w/ Crutons
+    food: 7
+  - name: Chicken Salad
+    food: 22
+  - name: Breadsticks
+    food: 11
+  - name: Cheese Stick
+    food: 8
+  - name: Fried Chicken
+    food: 49
+  - name: Fried Cheese
+    food: 41
+  - name: Chicken Parm
+    food: 19
+  - name: Lettuce Wrap
+    food: 28
+  - name: Chicken Sammie
+    food: 25
+  - name: Rabbit Food
+    food: 4

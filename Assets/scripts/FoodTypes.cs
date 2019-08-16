@@ -1,9 +1,9 @@
 [System.Flags]
 public enum FoodType {
-	Grain,
-	Fruit,
-	Vegetable,
-	Dairy,
-	Meat,
-	FatOilSugar
+	Grain = 1,
+	Fruit = 2,
+	Vegetable = 4,
+	Dairy = 8,
+	Meat = 16,
+	FatOilSugar = 32
 }

@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 [CreateAssetMenu]
 public class MealList : ScriptableObject, ISerializationCallbackReceiver {
-	private Dictionary<int, string> menu;
+	private Dictionary<FoodType, string> menu;
 	public string Grain;
 	public string Fruit;
 	public string Vegetable;
@@ -19,14 +20,14 @@ public class MealList : ScriptableObject, ISerializationCallbackReceiver {
 
     public void OnAfterDeserialize() {
 		// entries to menu
-		menu = new Dictionary<int, string>();
+		menu = new Dictionary<FoodType, string>();
 		foreach(MenuEntry entry in entries) {
-			menu.Add(entry.Entry(), entry.name);
+			menu.Add(entry.food, entry.name);
 		}
     }
 
 	public string Query(FoodType a, FoodType b, FoodType c) {
-		int food = (1 << (int) a) | (1 << (int) b) | (1 << (int) c);
+		FoodType food = a | b | c;
 		string meal;
 		menu.TryGetValue(food, out meal);
 		return meal;
@@ -36,45 +37,5 @@ public class MealList : ScriptableObject, ISerializationCallbackReceiver {
 [Serializable]
 public class MenuEntry {
 	public string name;
-	public bool Grain;
-	public bool Fruit;
-	public bool Vegetable;
-	public bool Dairy;
-	public bool Meat;
-	public bool FatOilSugar;
-
-	public int Entry() {
-		int food = 0;
-		bool[] entries = new bool[]{Grain, Fruit, Vegetable, Dairy, Meat, FatOilSugar};
-		for(int i = 0; i < entries.Length; i++) {
-			if (entries[i]) {
-				food |= 1 << i;
-			}
-		}
-		return food;
-	}
-}
-
-// quick hacking just for unity inspector :)
-[Serializable]
-public class Menu : FoodMap<MenuA> {}
-[Serializable]
-public class MenuA : FoodMap<MenuB> {}
-[Serializable]
-public class MenuB : FoodMap<string> {}
-
-[Serializable]
-public class FoodMap<T> {
-	public T Grain;
-	public T Fruit;
-	public T Vegetable;
-	public T Dairy;
-	public T Meat;
-	public T FatOilSugar;
-
-	public T this[FoodType index] {  
-		get {
-			return new T[]{Grain, Fruit, Vegetable, Dairy, Meat, FatOilSugar}[(int) index];
-		}
-	}  
+	public FoodType food;
 }

@@ -4,21 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour {
-	private bool[] values = new bool[Enum.GetNames(typeof(FoodType)).Length];
-	public FoodType[] starting = new FoodType[0];
+	[SerializeField] private FoodType values = 0;
 
-	void Start() {
-		foreach(var food in starting) {
-			this[food] = true;
-		}
-	}
-
-	public bool this[FoodType index] {  
+	public bool this[FoodType food] {
 		get {
-			return values[(int) index];
+			return (values & food) != 0;
 		}
 		private set {
-			values[(int) index] = value;
+			if (value) {
+				values |= food;
+			} else {
+				values &= ~(food);
+			}
 		}
 	}
 
