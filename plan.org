@@ -8,15 +8,33 @@
 ** DONE Damaging
 need a health script
 How to manage not hitting twice w/ same part of the attack?
-** meal attacks (match & display)
+** DONE meal attacks (match & display)
 Attacks start before combos are fully known. Is this a tree of attacks?
 Animation, hitbox (w/ anim?), damage / effect
-** courses
+** List some meals into system
+
+** Convert to 2D?
+Benefits
+- I can make sprites
+
+Downsides
+- Do I have time to animate?
 ** Base Movement (w/ anim)
 ** Controlled movement
 ** AI movement (dumb follow)
 ** AI attack
+
+** Juicier
+quicker animations
+flashing
+Attack area indication, splatter or swinging
+Directional knockback
+
 ** attack differentiation
+damage
+effect, e.g. knockback amount?
+
+** courses
 
 * Maybe later
 ** enemy health bars

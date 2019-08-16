@@ -7,8 +7,10 @@ using System.Linq;
 public class FoodFighter : MonoBehaviour {
 	public Cooldown comboCool = new Cooldown(.75f);
 	public Hitbox hitbox;
-	public AttackTree attackTree;
 	private Animator anim;
+	private Inventory inventory;
+
+	public MealList meals;
 
 	private Attack.Progress attackInProgress;
 
@@ -17,10 +19,17 @@ public class FoodFighter : MonoBehaviour {
     void Start() {
 		meal = new Queue<FoodType>();
 		anim = GetComponent<Animator>();
+		inventory = GetComponent<Inventory>();
     }
 
 	public void Enqueue(FoodType food) {
-		Debug.Log(string.Format("got a food, {0}", food));
+		if (!inventory[food]) {
+			Debug.Log(string.Format("discarding, {0}", food));
+			return;
+		} else {
+			Debug.Log(string.Format("got a food, {0}", food));
+		}
+			
 
 		// TODO check that food is active
 		// TODO eat input at some point if coming in too fast
@@ -29,11 +38,22 @@ public class FoodFighter : MonoBehaviour {
 		comboCool.Trigger();
 		meal.Enqueue(food);
 
-		// match to attack and start it
-		// need a traversal thing to walk the foodtree
-		// reset it when combo expires
+		anim?.SetTrigger(Enum.GetName(typeof(FoodType), food));
+		// TODO attack gets made somewhere else
+		attackInProgress = (new Attack(2f)).Trigger(hitbox, (t) => t.target.CompareTag("Player"));
 
 		if (meal.Count >= 3) {
+			if (meals != null) {
+				var a = meal.Dequeue();
+				var b = meal.Dequeue();
+				var c = meal.Dequeue();
+				string mealTitle = meals.Query(a,b,c);
+				if (mealTitle != "") {
+					Debug.Log(string.Format("made {0}", mealTitle));
+					var pos = this.transform.position + Vector3.up * 2f;
+					MealToaster.SToast(pos, mealTitle);
+				}
+			}
 			Clear();
 		}
 	}
@@ -42,14 +62,11 @@ public class FoodFighter : MonoBehaviour {
 		if (meal.Count != 0 && comboCool.cool) {
 			Clear();
 		}
-		if (attackInProgress != null) {
-			if (!attackInProgress.Update()) {
-				attackInProgress = null;
-			}
-		}
+
+		attackInProgress?.Update();
 	}
 
-	void Clear() {
+	public void Clear() {
 		comboCool.Clear(); // TODO incorporate move timing too?
 		Debug.Log(string.Format("meal done: {0}", meal.ToList()));
 		// TODO submit meal

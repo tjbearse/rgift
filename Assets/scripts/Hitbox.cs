@@ -19,10 +19,6 @@ public class Hitbox : MonoBehaviour {
 			return new HurtBox[0];
 		}
 		Collider[] colliders = Physics.OverlapBox(transform.position, boxSize, transform.rotation, mask);
-
-		if (colliders.Length > 0) {
-			Debug.Log("We hit something");
-		}
 		return colliders.Select(c => c.GetComponent<HurtBox>()).Where(hb => hb != null);
 	}
 

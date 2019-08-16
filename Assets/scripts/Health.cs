@@ -6,16 +6,20 @@ using UnityEngine;
 public class Health : MonoBehaviour {
 	public float maxHealth = 10f;
 	public float health;
+	private Animator anim;
 
     void Start() {
 		health = maxHealth;
+		anim = GetComponent<Animator>();
     }
 
 	public void TakeDamage(float damage) {
 		health -= damage;
 		if (health <= 0) {
 			health = 0;
-			Debug.Log("died");
+			anim?.SetTrigger("Died");
+		} else {
+			anim?.SetTrigger("Hurt");
 		}
 	}
 }
