@@ -11,7 +11,8 @@ How to manage not hitting twice w/ same part of the attack?
 ** DONE meal attacks (match & display)
 Attacks start before combos are fully known. Is this a tree of attacks?
 Animation, hitbox (w/ anim?), damage / effect
-** List some meals into system
+** DONE List some meals into system
+** Controller Support
 
 ** Convert to 2D?
 Benefits

@@ -1,3 +1,4 @@
+[System.Flags]
 public enum FoodType {
 	Grain,
 	Fruit,
