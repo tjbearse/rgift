@@ -326,7 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboCool:
     dur: 0.75
-  hitbox: {fileID: 4592317672723968547, guid: 23698091fb6b14f6a8c47722d9cb35a6, type: 3}
+  hitbox: {fileID: 15289633}
   meals: {fileID: 11400000, guid: d4a435a54bb12d2faa9168278b5d7150, type: 2}
 --- !u!1 &466099729
 GameObject:

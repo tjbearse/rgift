@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using System.Linq;
 
 public class FoodFighter : MonoBehaviour {
@@ -20,6 +21,7 @@ public class FoodFighter : MonoBehaviour {
 		meal = new Queue<FoodType>();
 		anim = GetComponentInChildren<Animator>();
 		inventory = GetComponent<Inventory>();
+		Assert.IsNotNull(hitbox, "no hitbox!");
     }
 
 	public void Enqueue(FoodType food) {
