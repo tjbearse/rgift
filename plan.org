@@ -12,14 +12,16 @@ How to manage not hitting twice w/ same part of the attack?
 Attacks start before combos are fully known. Is this a tree of attacks?
 Animation, hitbox (w/ anim?), damage / effect
 ** DONE List some meals into system
-** Controller Support
+** DONE Controller Support
 
-** Convert to 2D?
-Benefits
-- I can make sprites
-
-Downsides
-- Do I have time to animate?
+** Convert to 2D
+*** DONE Sprites are done!
+*** Update scripts for 2D colliders (hit and hurtbox)
+*** Need to reattach scripts to Rebecca object
+*** Make animations for different foods
+Hitbox location and activity
+Save cool particles and junk for later!
+*** Make enemy objects
 ** Base Movement (w/ anim)
 ** Controlled movement
 ** AI movement (dumb follow)
