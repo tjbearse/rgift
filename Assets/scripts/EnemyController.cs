@@ -9,10 +9,17 @@ public class EnemyController : MonoBehaviour {
 	private Transform target;
 	private Mover mover;
 	public float radius = .5f;
-	public bool flee = false;
 	public Cooldown attackCooldown = new Cooldown(1f);
 	public Hitbox hitbox;
 	private Animator anim;
+
+	public State state = State.Seeking;
+	public enum State {
+		Seeking,
+		Anim,
+		Flee,
+	}
+
 
 	private Attack.Progress attackInProgress;
 
@@ -29,7 +36,7 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void OnEnable() {
-		flee = false;
+		state = State.Seeking;
 		target = GameObject.FindWithTag("Player").transform;
 	}
 
@@ -37,23 +44,27 @@ public class EnemyController : MonoBehaviour {
 		mover.Move(Vector2.zero);
 	}
 
+	void FixedUpdate() {
+		attackInProgress?.Update();
+	}
+
 	void Update() {
 		Vector2 movement =  target.position - transform.position;
-		if (flee) {
+		if (state == State.Flee) {
 			mover.Move(-movement.normalized);
-		} else if (movement.SqrMagnitude() > radius * radius) {
-			mover.Move(movement.normalized);
-		} else {
-			mover.Move(Vector2.zero);
-			if (attackCooldown.cool) {
-				attackInProgress = (new Attack(2f)).Trigger(hitbox, (t) => t.target.CompareTag("Enemy"));
-				attackCooldown.Trigger();
-				anim.SetTrigger("Attack");
-				anim.SetBool("VaryAttack", !anim.GetBool("VaryAttack"));
+			// TODO move faster and clear when off screen
+		} else if (state == State.Seeking) {
+			if (movement.SqrMagnitude() > radius * radius) {
+				mover.Move(movement.normalized);
+			} else {
+				mover.Move(Vector2.zero);
+				if (attackCooldown.cool) {
+					attackInProgress = (new Attack(2f)).Trigger(hitbox, (t) => t.target.CompareTag("Enemy"));
+					attackCooldown.Trigger();
+					anim.SetTrigger("Attack");
+					anim.SetBool("VaryAttack", !anim.GetBool("VaryAttack"));
+				}
 			}
 		}
-		attackInProgress?.Update();
-
-		// TODO unflee?
 	}
 }

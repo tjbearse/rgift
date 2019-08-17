@@ -69,6 +69,9 @@ public class FoodFighter : MonoBehaviour {
 			Clear();
 		}
 
+	}
+
+	void FixedUpdate() {
 		attackInProgress?.Update();
 	}
 

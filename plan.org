@@ -45,6 +45,7 @@ Start combo delay from the animations?
 Also should eat input from the early part of long combos
 And delay display of the meal name
 ** Trigger Attack end for Rebecca
+use animation events to let the FoodFighter know we can stop updating the attack
 
 * Maybe later
 ** enemy health bars
