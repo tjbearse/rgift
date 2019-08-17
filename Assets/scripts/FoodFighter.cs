@@ -18,7 +18,7 @@ public class FoodFighter : MonoBehaviour {
 	
     void Start() {
 		meal = new Queue<FoodType>();
-		anim = GetComponent<Animator>();
+		anim = GetComponentInChildren<Animator>();
 		inventory = GetComponent<Inventory>();
     }
 
@@ -50,7 +50,7 @@ public class FoodFighter : MonoBehaviour {
 				string mealTitle = meals.Query(a,b,c);
 				if (mealTitle != "") {
 					Debug.Log(string.Format("made {0}", mealTitle));
-					var pos = this.transform.position + Vector3.up * 2f;
+					var pos = this.transform.position + Vector3.up;
 					MealToaster.SToast(pos, mealTitle);
 				}
 			}

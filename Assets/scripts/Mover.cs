@@ -14,13 +14,18 @@ public class Mover : MonoBehaviour {
 	}
 
 	public void Move(Vector2 dir) {
+		if (dir.SqrMagnitude() < .2f) {
+			dir = Vector2.zero;
+		}
 		Debug.Log(dir * speed);
 		velocity = dir * speed;
 	}
 
 	public void FixedUpdate() {
 		_rb.velocity = velocity;
-		var facing = Quaternion.LookRotation(Vector3.forward, -velocity);
-		transform.rotation = Quaternion.RotateTowards(transform.rotation, facing, 10f);
+		if (velocity.SqrMagnitude() > .2f) {
+			var facing = Quaternion.LookRotation(Vector3.forward, -velocity);
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, facing, 10f);
+		}
 	}
 }
