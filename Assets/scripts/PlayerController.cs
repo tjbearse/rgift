@@ -15,8 +15,10 @@ public class PlayerController : MonoBehaviour {
 	private const string moveName = "move";
 	private Vector2 movement = Vector2.zero;
 	private FoodFighter foodFighter;
+	private Mover mover;
 
     void Start() {
+		mover = GetComponent<Mover>();
 		foodFighter = GetComponent<FoodFighter>();
 		Assert.IsNotNull(foodFighter);
 
@@ -50,7 +52,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update() {
-		// TODO mover.Move(movement);
+		mover?.Move(movement);
 	}
 
 	private void RecieveMovement(InputAction.CallbackContext cc) {

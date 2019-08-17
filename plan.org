@@ -42,6 +42,8 @@ effect, e.g. knockback amount?
 * TODO Fix
 ** Combo delay is too short for some long attacks
 Start combo delay from the animations?
+Also should eat input from the early part of long combos
+And delay display of the meal name
 
 * Maybe later
 ** enemy health bars
