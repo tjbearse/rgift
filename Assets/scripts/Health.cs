@@ -19,6 +19,7 @@ public class Health : MonoBehaviour {
 		if (health <= 0) {
 			health = 0;
 			anim?.SetTrigger("Died");
+			anim?.SetTrigger("Hurt");
 		} else {
 			anim?.SetTrigger("Hurt");
 		}
