@@ -22,9 +22,9 @@ Animation, hitbox (w/ anim?), damage / effect
 Hitbox location and activity
 Save cool particles and junk for later!
 *** Make enemy objects
-** Base Movement (w/ anim)
-** Controlled movement
-** AI movement (dumb follow)
+** DONE Base Movement (w/ anim)
+** DONE Controlled movement
+** DONE AI movement (dumb follow)
 ** AI attack
 
 ** Juicier
@@ -40,10 +40,13 @@ effect, e.g. knockback amount?
 ** courses
 
 * TODO Fix
+** Hurt motion is jacked up
+Player animation needs to be moved up a level, which means copying and pasting existing animation data
 ** Combo delay is too short for some long attacks
 Start combo delay from the animations?
 Also should eat input from the early part of long combos
 And delay display of the meal name
+** Hitting doesn't seem to be working rn
 
 * Maybe later
 ** enemy health bars

@@ -17,7 +17,6 @@ public class Mover : MonoBehaviour {
 		if (dir.SqrMagnitude() < .2f) {
 			dir = Vector2.zero;
 		}
-		Debug.Log(dir * speed);
 		velocity = dir * speed;
 	}
 
