@@ -16,9 +16,9 @@ Animation, hitbox (w/ anim?), damage / effect
 
 ** Convert to 2D
 *** DONE Sprites are done!
-*** Update scripts for 2D colliders (hit and hurtbox)
-*** Need to reattach scripts to Rebecca object
-*** Make animations for different foods
+*** DONE Update scripts for 2D colliders (hit and hurtbox)
+*** DONE Need to reattach scripts to Rebecca object
+*** [Done for now] Make animations for different foods
 Hitbox location and activity
 Save cool particles and junk for later!
 *** Make enemy objects
@@ -38,6 +38,10 @@ damage
 effect, e.g. knockback amount?
 
 ** courses
+
+* TODO Fix
+** Combo delay is too short for some long attacks
+Start combo delay from the animations?
 
 * Maybe later
 ** enemy health bars

@@ -18,7 +18,12 @@ public class Hitbox : MonoBehaviour {
 		if (!active) {
 			return new HurtBox[0];
 		}
-		Collider[] colliders = Physics.OverlapBox(transform.position, boxSize, transform.rotation, mask);
+		Matrix4x4.TRS(transform.position, transform.rotation, transform.localScale);
+		Vector3 box = transform.rotation * boxSize;
+		Vector2 a = transform.position - box;
+		Vector2 b = transform.position + box;
+		// need to rotate?
+		Collider2D[] colliders = Physics2D.OverlapAreaAll(a, b, mask);
 		return colliders.Select(c => c.GetComponent<HurtBox>()).Where(hb => hb != null);
 	}
 
@@ -29,6 +34,6 @@ public class Hitbox : MonoBehaviour {
 			Gizmos.color = new Color(.5f,.5f,0,.25f);
 		}
 		Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, transform.localScale);
-		Gizmos.DrawCube(Vector3.zero, new Vector3(boxSize.x * 2, boxSize.y * 2, boxSize.z * 2)); // Because size is halfExtents
+		Gizmos.DrawCube(Vector3.zero, boxSize);
 	}
 }
