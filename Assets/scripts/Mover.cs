@@ -8,6 +8,7 @@ public class Mover : MonoBehaviour {
 
 	private Rigidbody2D _rb;
 	private Vector2 velocity;
+	private Vector2 facing;
 
 	void Start() {
 		_rb = GetComponent<Rigidbody2D>();
@@ -18,13 +19,22 @@ public class Mover : MonoBehaviour {
 			dir = Vector2.zero;
 		}
 		velocity = dir * speed;
+		facing = dir;
+	}
+
+	public void Move(Vector2 dir, Vector2 _facing) {
+		if (dir.SqrMagnitude() < .2f) {
+			dir = Vector2.zero;
+		}
+		velocity = dir * speed;
+		facing = _facing;
 	}
 
 	public void FixedUpdate() {
 		_rb.velocity = velocity;
-		if (velocity.SqrMagnitude() > .2f) {
-			var facing = Quaternion.LookRotation(Vector3.forward, -velocity);
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, facing, 10f);
+		if (facing.SqrMagnitude() > .5f) {
+			Quaternion turnTarg = Quaternion.LookRotation(Vector3.forward, -facing);
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, turnTarg, 10f);
 		}
 	}
 }

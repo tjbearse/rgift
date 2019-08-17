@@ -23,7 +23,6 @@ public class Hitbox : MonoBehaviour {
 		Vector2 b = transform.position + box;
 		// need to rotate?
 		Collider2D[] colliders = Physics2D.OverlapAreaAll(a, b, mask);
-		Debug.Log(string.Format("{0} raw results", colliders.Length));
 		return colliders.Select(c => c.GetComponent<HurtBox>()).Where(hb => hb != null);
 	}
 

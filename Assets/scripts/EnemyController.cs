@@ -50,21 +50,27 @@ public class EnemyController : MonoBehaviour {
 
 	void Update() {
 		Vector2 movement =  target.position - transform.position;
-		if (state == State.Flee) {
-			mover.Move(-movement.normalized);
-			// TODO move faster and clear when off screen
-		} else if (state == State.Seeking) {
-			if (movement.SqrMagnitude() > radius * radius) {
-				mover.Move(movement.normalized);
-			} else {
-				mover.Move(Vector2.zero);
-				if (attackCooldown.cool) {
-					attackInProgress = (new Attack(2f)).Trigger(hitbox, (t) => t.target.CompareTag("Enemy"));
-					attackCooldown.Trigger();
-					anim.SetTrigger("Attack");
-					anim.SetBool("VaryAttack", !anim.GetBool("VaryAttack"));
+		switch(state) {
+			case State.Flee:
+				mover.Move(-movement.normalized);
+				// TODO move faster and clear when off screen
+			break;
+			case State.Seeking:
+				if (movement.SqrMagnitude() > radius * radius) {
+					mover.Move(movement.normalized);
+				} else {
+					mover.Move(Vector2.zero, movement.normalized);
+					if (attackCooldown.cool) {
+						attackInProgress = (new Attack(2f)).Trigger(hitbox, (t) => t.target.CompareTag("Enemy"));
+						attackCooldown.Trigger();
+						anim.SetTrigger("Attack");
+						anim.SetBool("VaryAttack", !anim.GetBool("VaryAttack"));
+					}
 				}
-			}
+			break;
+			case State.Anim:
+				mover.Move(Vector2.zero);
+			break;
 		}
 	}
 }
