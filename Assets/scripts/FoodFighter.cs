@@ -60,6 +60,10 @@ public class FoodFighter : MonoBehaviour {
 		}
 	}
 
+	public void AttackEnd() {
+		attackInProgress = null;
+	}
+
 	void Update() {
 		if (meal.Count != 0 && comboCool.cool) {
 			Clear();

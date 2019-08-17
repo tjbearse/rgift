@@ -25,7 +25,7 @@ Save cool particles and junk for later!
 ** DONE Base Movement (w/ anim)
 ** DONE Controlled movement
 ** DONE AI movement (dumb follow)
-** AI attack
+** DONE AI attack
 
 ** Juicier
 quicker animations
@@ -47,6 +47,7 @@ This didn't work on the enemy even though I set it up as root motion. Need to ch
 Start combo delay from the animations?
 Also should eat input from the early part of long combos
 And delay display of the meal name
+** Trigger Attack end for Rebecca
 
 * Maybe later
 ** enemy health bars
