@@ -20,6 +20,14 @@ public class Mover : MonoBehaviour {
 		velocity = dir * speed;
 	}
 
+	public void OnAnimatorMove() {
+		Animator animator = GetComponent<Animator>();
+
+		if (animator) {
+			animator.ApplyBuiltinRootMotion();
+		}
+	}
+
 	public void FixedUpdate() {
 		_rb.velocity = velocity;
 		if (velocity.SqrMagnitude() > .2f) {

@@ -40,13 +40,12 @@ public class EnemyController : MonoBehaviour {
 	void Update() {
 		Vector2 movement =  target.position - transform.position;
 		if (flee) {
-			movement *= -1f;
-		}
-		if (movement.SqrMagnitude() > radius * radius) {
+			mover.Move(-movement.normalized);
+		} else if (movement.SqrMagnitude() > radius * radius) {
 			mover.Move(movement.normalized);
 		} else {
 			mover.Move(Vector2.zero);
-			if (!flee && attackCooldown.cool) {
+			if (attackCooldown.cool) {
 				attackInProgress = (new Attack(2f)).Trigger(hitbox, (t) => t.target.CompareTag("Enemy"));
 				attackCooldown.Trigger();
 				anim.SetTrigger("Attack");
