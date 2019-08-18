@@ -13,12 +13,17 @@ public class Health : MonoBehaviour {
 		anim = GetComponent<Animator>();
     }
 
+	public void Heal() {
+		health = maxHealth;
+		anim?.SetBool("Alive", true);
+	}
+
 	public void TakeDamage(float damage) {
 		Debug.Log("damaged", this.gameObject);
 		health -= damage;
 		if (health <= 0) {
 			health = 0;
-			anim?.SetTrigger("Died");
+			anim?.SetBool("Alive", false);
 			anim?.SetTrigger("Hurt");
 		} else {
 			anim?.SetTrigger("Hurt");

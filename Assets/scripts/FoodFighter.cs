@@ -38,6 +38,7 @@ public class FoodFighter : MonoBehaviour {
 					MealToaster.SToast(pos, mealTitle);
 				}
 			}
+			Debug.Log(string.Format("meal done: {0}", meal.ToList()));
 			Clear();
 		} else {
 			comboCool.Trigger();
@@ -80,9 +81,8 @@ public class FoodFighter : MonoBehaviour {
 	}
 
 	public void Clear() {
-		comboCool.Clear(); // TODO incorporate move timing too?
-		Debug.Log(string.Format("meal done: {0}", meal.ToList()));
-		// TODO submit meal
+		attackInProgress = null;
+		comboCool.Clear();
 		meal.Clear();
 	}
 }

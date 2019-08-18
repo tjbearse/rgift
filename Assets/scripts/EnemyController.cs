@@ -6,12 +6,15 @@ using UnityEngine.Assertions;
 
 
 public class EnemyController : MonoBehaviour {
-	private Transform target;
-	private Mover mover;
 	public float radius = .5f;
 	public Cooldown attackCooldown = new Cooldown(1f);
 	public Hitbox hitbox;
+	public Camera cam;
+
+	private Transform target;
+	private Mover mover;
 	private Animator anim;
+	private Health health;
 
 	public State state = State.Seeking;
 	public enum State {
@@ -29,6 +32,7 @@ public class EnemyController : MonoBehaviour {
 		Assert.IsNotNull(mover, "didn't find a mover");
 		anim = GetComponent<Animator>();
 		Assert.IsNotNull(anim, "didn't find the animator");
+		health = GetComponent<Health>();
     }
 
 	public void AttackEnd() {
@@ -54,6 +58,13 @@ public class EnemyController : MonoBehaviour {
 			case State.Flee:
 				mover.Move(-movement.normalized);
 				// TODO move faster and clear when off screen
+				if (cam != null) {
+					var screenPos = cam.WorldToScreenPoint(transform.position);
+					if (!cam.pixelRect.Contains(screenPos)) {
+						state = State.Seeking;
+						health.Heal();
+					}
+				}
 			break;
 			case State.Seeking:
 				if (movement.SqrMagnitude() > radius * radius) {

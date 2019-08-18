@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: idle
+  m_Name: forkIdle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -39,7 +39,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 2414474533063011785, guid: 2cbeb0178f4907af49785d6594f41959,
+      value: {fileID: -5559150632450785296, guid: 2cbeb0178f4907af49785d6594f41959,
         type: 3}
     attribute: m_Sprite
     path: avatar
@@ -67,7 +67,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 2414474533063011785, guid: 2cbeb0178f4907af49785d6594f41959, type: 3}
+    - {fileID: -5559150632450785296, guid: 2cbeb0178f4907af49785d6594f41959, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
