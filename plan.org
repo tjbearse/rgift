@@ -27,9 +27,9 @@ Save cool particles and junk for later!
 ** DONE AI movement (dumb follow)
 ** DONE AI attack
 
-** Juice
+** DONE Juice
 Attack area indication, splatter or swinging
-Directional knockback
+X Directional knockback
 
 ** DONE Animate Remaining attacks
 Meat
