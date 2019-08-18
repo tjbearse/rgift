@@ -220,7 +220,7 @@
                 {
                     "name": "down",
                     "id": "2cbfa01b-bedb-4a80-91e4-fbc93689fce9",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
@@ -231,7 +231,7 @@
                 {
                     "name": "left",
                     "id": "73224b6a-66bb-4166-b0a5-58a8dcb472c5",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
@@ -242,7 +242,7 @@
                 {
                     "name": "right",
                     "id": "4202ab04-0757-467f-8d75-58e38ca76666",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
