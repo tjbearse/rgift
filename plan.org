@@ -27,25 +27,30 @@ Save cool particles and junk for later!
 ** DONE AI movement (dumb follow)
 ** DONE AI attack
 
-** Juicier
-quicker animations
-flashing
+** Juice
 Attack area indication, splatter or swinging
 Directional knockback
 
+** Animate Remaining attacks
+Meat
+Vegetable
+FatOilSugar
 ** attack differentiation
 damage
 effect, e.g. knockback amount?
-
 ** courses
+What are these at this point?
+Originally a bonus for making meals.
+Now waves of a survival game?
 
 * TODO Fix
 ** Combo delay is too short for some long attacks
 Start combo delay from the animations?
-Also should eat input from the early part of long combos
+Also should eat input from the early part of long attacks
 And delay display of the meal name
 ** Trigger Attack end for Rebecca
 use animation events to let the FoodFighter know we can stop updating the attack
+Combine this with combo delay above
 
 * Maybe later
 ** enemy health bars

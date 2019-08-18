@@ -9,8 +9,10 @@ public class Mover : MonoBehaviour {
 	private Rigidbody2D _rb;
 	private Vector2 velocity;
 	private Vector2 facing;
+	private Animator anim;
 
 	void Start() {
+		anim = GetComponent<Animator>();
 		_rb = GetComponent<Rigidbody2D>();
 	}
 
@@ -21,6 +23,17 @@ public class Mover : MonoBehaviour {
 		velocity = dir * speed;
 		facing = dir;
 	}
+
+	private void OnAnimatorMove() {
+		// do root motion by hand to avoid weird y axis behavior
+		if (anim != null) {
+			// note that this addition is ok because we clobber velocity every frame in fixed update.
+			// if/when we don't do that we probably need to rethink how combining these values works.
+			_rb.velocity += (Vector2) anim.deltaPosition / Time.deltaTime;
+			_rb.angularVelocity = anim.deltaRotation.eulerAngles.z / Time.deltaTime;
+		}
+	}
+
 
 	public void Move(Vector2 dir, Vector2 _facing) {
 		if (dir.SqrMagnitude() < .2f) {
