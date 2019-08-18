@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode] 
 public class Mover : MonoBehaviour {
 	public float speed = 1f;
 
@@ -24,6 +25,8 @@ public class Mover : MonoBehaviour {
 		facing = dir;
 	}
 
+	// Note: this doesn't work with animation timeline so it has to be commented out
+	// when working on root animations
 	private void OnAnimatorMove() {
 		// do root motion by hand to avoid weird y axis behavior
 		if (anim != null) {
@@ -31,6 +34,8 @@ public class Mover : MonoBehaviour {
 			// if/when we don't do that we probably need to rethink how combining these values works.
 			_rb.velocity += (Vector2) anim.deltaPosition / Time.deltaTime;
 			_rb.angularVelocity = anim.deltaRotation.eulerAngles.z / Time.deltaTime;
+		} else {
+			Debug.Log("anim null");
 		}
 	}
 
@@ -44,6 +49,10 @@ public class Mover : MonoBehaviour {
 	}
 
 	public void FixedUpdate() {
+		if (!Application.IsPlaying(gameObject)) {
+			return;
+		}
+
 		_rb.velocity = velocity;
 		if (facing.SqrMagnitude() > .5f) {
 			Quaternion turnTarg = Quaternion.LookRotation(Vector3.forward, -facing);

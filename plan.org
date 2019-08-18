@@ -18,10 +18,10 @@ Animation, hitbox (w/ anim?), damage / effect
 *** DONE Sprites are done!
 *** DONE Update scripts for 2D colliders (hit and hurtbox)
 *** DONE Need to reattach scripts to Rebecca object
-*** [Done for now] Make animations for different foods
+*** DONE Make animations for different foods
 Hitbox location and activity
 Save cool particles and junk for later!
-*** Make enemy objects
+*** DONE Make enemy objects
 ** DONE Base Movement (w/ anim)
 ** DONE Controlled movement
 ** DONE AI movement (dumb follow)
@@ -31,10 +31,19 @@ Save cool particles and junk for later!
 Attack area indication, splatter or swinging
 Directional knockback
 
-** Animate Remaining attacks
+** DONE Animate Remaining attacks
 Meat
 Vegetable
-FatOilSugar
+(skipped) FatOilSugar
+
+* TODO Fix
+
+* Maybe later
+** enemy health bars
+** player GUI
+** knockback, hitstop
+** DONE attack interrupt
+works now
 ** attack differentiation
 damage
 effect, e.g. knockback amount?
@@ -42,21 +51,6 @@ effect, e.g. knockback amount?
 What are these at this point?
 Originally a bonus for making meals.
 Now waves of a survival game?
-
-* TODO Fix
-** Combo delay is too short for some long attacks
-Start combo delay from the animations?
-Also should eat input from the early part of long attacks
-And delay display of the meal name
-** Trigger Attack end for Rebecca
-use animation events to let the FoodFighter know we can stop updating the attack
-Combine this with combo delay above
-
-* Maybe later
-** enemy health bars
-** player GUI
-** knockback, hitstop
-** attack interrupt
 
 * Cutting room floor
 ** Item loss system

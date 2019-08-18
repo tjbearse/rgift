@@ -16,6 +16,7 @@ public class FoodFighter : MonoBehaviour {
 	private Attack.Progress attackInProgress;
 
 	private Queue<FoodType> meal;
+	private bool acceptInput = true;
 	
     void Start() {
 		meal = new Queue<FoodType>();
@@ -24,26 +25,7 @@ public class FoodFighter : MonoBehaviour {
 		Assert.IsNotNull(hitbox, "no hitbox!");
     }
 
-	public void Enqueue(FoodType food) {
-		if (!inventory[food]) {
-			Debug.Log(string.Format("discarding, {0}", food));
-			return;
-		} else {
-			Debug.Log(string.Format("got a food, {0}", food));
-		}
-			
-
-		// TODO check that food is active
-		// TODO eat input at some point if coming in too fast
-
-		// TODO start attacking
-		comboCool.Trigger();
-		meal.Enqueue(food);
-
-		anim?.SetTrigger(Enum.GetName(typeof(FoodType), food));
-		// TODO attack gets made somewhere else
-		attackInProgress = (new Attack(2f)).Trigger(hitbox, (t) => t.target.CompareTag("Player"));
-
+	public void AcceptInput() {
 		if (meal.Count >= 3) {
 			if (meals != null) {
 				var a = meal.Dequeue();
@@ -57,7 +39,29 @@ public class FoodFighter : MonoBehaviour {
 				}
 			}
 			Clear();
+		} else {
+			comboCool.Trigger();
 		}
+		acceptInput = true;
+	}
+
+	public void Enqueue(FoodType food) {
+		if (!inventory[food]) {
+			Debug.Log(string.Format("discarding, {0} (inv)", food));
+			return;
+		} else if (!acceptInput) {
+			Debug.Log(string.Format("discarding, {0} (eat)", food));
+			return;
+		} else {
+			Debug.Log(string.Format("got a food, {0}", food));
+		}
+		acceptInput = false;
+		comboCool.Pause();
+		meal.Enqueue(food);
+		anim?.SetTrigger(Enum.GetName(typeof(FoodType), food));
+		// TODO attack gets made somewhere else
+		attackInProgress = (new Attack(2f)).Trigger(hitbox, (t) => t.target.CompareTag("Player"));
+
 	}
 
 	public void AttackEnd() {

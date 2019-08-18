@@ -10,6 +10,10 @@ public class Cooldown {
 		dur = timeInSeconds;
 	}
 
+	public void Pause() {
+		next = Mathf.Infinity;
+	}
+
 	public void Trigger() {
 		next = Time.time + dur;
 	}
