@@ -84,5 +84,6 @@ public class FoodFighter : MonoBehaviour {
 		attackInProgress = null;
 		comboCool.Clear();
 		meal.Clear();
+		acceptInput = true;
 	}
 }
